@@ -1,0 +1,24 @@
+[project]
+name = "day-zero"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "havenousername",email = "andrei.cristea997@gmail.com"}
+]
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = [
+    "qdrant-client (>=1.18.0,<2.0.0)"
+]
+
+[tool.poetry]
+packages = [{include = "day_zero", from = "src"}]
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[dependency-groups]
+dev = [
+    "ipykernel (>=7.2.0,<8.0.0)"
+]
