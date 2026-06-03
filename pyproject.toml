@@ -6,14 +6,23 @@ authors = [
     {name = "havenousername",email = "andrei.cristea997@gmail.com"}
 ]
 readme = "README.md"
-requires-python = ">=3.14"
+requires-python =  ">=3.14,<3.15"
 dependencies = [
-    "qdrant-client (>=1.18.0,<2.0.0)"
+    "qdrant-client (>=1.18.0,<2.0.0)",
+    "torch (>=2.12.0,<3.0.0)",
+    "sentence-transformers (>=5.5.1,<6.0.0)",
+    "transformers (>=5.9.0,<6.0.0)",
+    "llama-index-core (>=0.14.22,<0.15.0)",
+    "llama-index-embeddings-huggingface (>=0.7.0,<0.8.0)",
+    "requests (>=2.34.2,<3.0.0)",
+    "pydantic (>=2.13.4,<3.0.0)",
+    "wikipedia-api (>=0.15.0,<0.16.0)",
+    "numpy (>=2.4.6,<3.0.0)",
+    "matplotlib (>=3.10.9,<4.0.0)"
 ]
 
 [tool.poetry]
 packages = [{include = "day_zero", from = "src"}]
-
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]
 build-backend = "poetry.core.masonry.api"
