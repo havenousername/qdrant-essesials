@@ -1,5 +1,5 @@
 [project]
-name = "day-zero"
+name = "qdrant-essentials"
 version = "0.1.0"
 description = ""
 authors = [
@@ -18,11 +18,13 @@ dependencies = [
     "pydantic (>=2.13.4,<3.0.0)",
     "wikipedia-api (>=0.15.0,<0.16.0)",
     "numpy (>=2.4.6,<3.0.0)",
-    "matplotlib (>=3.10.9,<4.0.0)"
+    "matplotlib (>=3.10.9,<4.0.0)",
+    "regex (>=2023.0.0,<2024.0.0)",
+    "Pillow (>=10.0.0,<11.0.0)"
 ]
 
 [tool.poetry]
-packages = [{include = "day_zero", from = "src"}]
+packages = [{include = "*", from = "src"}]
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]
 build-backend = "poetry.core.masonry.api"
