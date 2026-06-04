@@ -1,0 +1,22 @@
+{
+  "[python]": {
+    "editor.defaultFormatter": "charliermarsh.ruff",
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.fixAll.ruff": "explicit",
+      "source.organizeImports.ruff": "explicit"
+    }
+  },
+  "python.languageServer": "None",
+  "basedpyright.typeCheckingMode": "basic",
+  "basedpyright.analysis.inlayHints.variableTypes": true,
+  "basedpyright.analysis.inlayHints.functionReturnTypes": true,
+  "basedpyright.analysis.inlayHints.callArgumentNames": "partial",
+  "basedpyright.analysis.diagnosticSeverityOverrides": {
+    "reportUnknownVariableType": "none",
+    "reportUnknownMemberType": "none",
+    "reportUnknownArgumentType": "none"
+  },
+  "ruff.lint.enable": true,
+  "ruff.format.enable": true
+}
