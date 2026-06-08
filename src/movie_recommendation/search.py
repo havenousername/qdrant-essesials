@@ -4,14 +4,13 @@ Movie search functionality using Qdrant vector database
 import os
 import statistics
 import time
-from typing import Any, final
 from collections.abc import Mapping
+from typing import Any, final
 
+import numpy as np
 from pydantic import BaseModel
 from qdrant_client import QdrantClient, models
 from sentence_transformers import SentenceTransformer
-import numpy as np
-
 
 
 class HNSWConfig(BaseModel):
@@ -421,7 +420,7 @@ class MovieSearch:
         print(f"Result overlap: {overlap}/{len(exact_ids)} ({100*overlap/len(exact_ids):.1f}%)")
         
         # Determine if HNSW is working
-        if info.points_count < hnsw_config.full_scan_threshold:
+        if (info.points_count or 0) < hnsw_config.full_scan_threshold:
             print(f"\n⚠️  HNSW likely NOT used: points ({info.points_count}) < threshold ({hnsw_config.full_scan_threshold})")
         elif exact_avg / hnsw_avg < 1.1:  # Less than 10% difference
             print(f"\n⚠️  HNSW might not be used: minimal performance difference")
@@ -446,7 +445,7 @@ class MovieSearch:
         while time.time() - start_time < timeout:
             info = self.client.get_collection(self.collection_name)
 
-            if info.indexed_vectors_count > 0 and info.status == models.CollectionStatus.GREEN:
+            if (info.indexed_vectors_count or 0) > 0 and info.status == models.CollectionStatus.GREEN:
                 print(f"Success! Collection '{self.collection_name}' is indexed and ready.")
                 print(f" - Status: {info.status.value}")
                 print(f" - Indexed vectors: {info.indexed_vectors_count}")

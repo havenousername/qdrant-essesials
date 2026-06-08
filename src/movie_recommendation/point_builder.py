@@ -2,23 +2,24 @@
 Point building functionality for movie data
 """
 
-from collections.abc import Mapping
-from io import BytesIO
-from typing import Any
 import json
 import pickle
-from pathlib import Path
+import uuid
+from collections.abc import Mapping
 from concurrent.futures import ThreadPoolExecutor, as_completed
-import numpy as np
+from io import BytesIO
+from pathlib import Path
+from typing import Any
 
+import numpy as np
 import requests
 from PIL import Image
 from qdrant_client import models
 from sentence_transformers import SentenceTransformer
-import uuid
 
 from models.movie_models import RawMovie
-from .chunking import fixed_size_chunks, sentence_chunks, semantic_chunks
+
+from .chunking import fixed_size_chunks, semantic_chunks, sentence_chunks
 
 # Initialize encoders for different strategies
 encoders = {

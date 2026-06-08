@@ -1,10 +1,12 @@
 import os
 from typing import Any, final
+
 import requests
 import wikipediaapi
 
 from models.movie_models import RawMovie
 from utils.urlbuilder import URLBuilder
+
 
 @final
 class MoviesDataset:
