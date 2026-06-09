@@ -185,7 +185,6 @@ class QdrantPreprocessWada(Collectionable):
 
 
 
-
 class HybridSearchCollection(Collectionable):
     def __init__(
         self,
